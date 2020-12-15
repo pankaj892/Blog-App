@@ -23,9 +23,8 @@
                 <div class="post">
                     <div class="date">
                         <p>{{ post.published_date }}</p>
-                        <h3 style="margin-top:5px"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
-                    <p style="margin-bottom:1px">{{ post.text|linebreaksbr }}</p>
-                    <p style="float:right"><i>Author: {{ post.author }}</i></p>
+                        <h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
+                    <p>{{ post.text|linebreaksbr }}</p>
                     </div>
                 </div>
                 </li>
