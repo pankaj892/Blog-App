@@ -15,16 +15,4 @@ class Post(models.Model):
         self.save()
 
     def __str__(self):
-        return '{}, {}'.format(self.title, self.id)
-
-
-class Comment(models.Model):
-    # comment_id = models.AutoField(primary_key=True)
-    post_id = models.IntegerField(default=0)
-    cmnt = models.CharField(max_length=500)
-    authr = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    created_date = models.DateTimeField(default=timezone.now)
-    published_date = models.DateTimeField(blank=True, null=True)
-
-    def __str__(self):
-        return '{}, {}'.format(self.authr, self.post_id)
+        return self.title
