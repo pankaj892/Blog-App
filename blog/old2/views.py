@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .models import Post, Comment
+from .models import Post
 from .forms import PostForm
 
 
@@ -13,17 +13,7 @@ def post_list(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    if request.method == "POST":
-        cmnt = request.POST.get('comment', '')
-        com = Comment(cmnt = cmnt, authr = request.user, post_id = post.id)
-        com.save()
-    view_comments = Comment.objects.filter(post_id = post.id)
-    # print(view_comments)
-    # view = []
-    # for item in view_comments:
-    #     view.append(item.cmnt)
-    # print(view)
-    return render(request, 'blog/post_detail.html', {'post': post, 'view':view_comments})
+    return render(request, 'blog/post_detail.html', {'post': post})
 
 
 def post_new(request):

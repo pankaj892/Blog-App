@@ -1,15 +1,5 @@
 {% extends 'blog/base.html' %}
 {% load static %}
-{% block style %}
-.list-group-item:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
-    transform: scale(1.005)
-}
-.list-group-item{
-    transition: 0.2s;
-}
-
-{% endblock %}
 <html>
     <head>
 <title>Pankaj's blog</title>
@@ -20,8 +10,8 @@
     </head>
     <body>
         <div>
-            <h1><a href="/">Pankaj's Blog</a></h1>
-        </div>
+    <h1><a href="/">Pankaj's Blog</a></h1>
+</div>
 
 <div class="content container">
     <div class="row">
@@ -30,14 +20,14 @@
             <ul class="list-group">
             {% for post in posts %}
                 <li class="list-group-item">
-                    <div class="post">
-                        <div class="date">
-                            <p>{{ post.published_date }}</p>
-                        </div>
+                <div class="post">
+                    <div class="date">
+                        <p>{{ post.published_date }}</p>
                         <h3 style="margin-top:5px"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
-                        <p style="margin-bottom:1px">{{ post.text|linebreaksbr|slice:"0:550" }}{% if post.text|length > 550 %}...<a href="{% url 'post_detail' pk=post.pk %}"><i>Read more</i></a>{% endif %}</p>
-                        <p style="float:right"><i>Author: {{ post.author }}</i></p>
+                    <p style="margin-bottom:1px">{{ post.text|linebreaksbr }}</p>
+                    <p style="float:right"><i>Author: {{ post.author }}</i></p>
                     </div>
+                </div>
                 </li>
                 <hr>
             {% endfor %}
