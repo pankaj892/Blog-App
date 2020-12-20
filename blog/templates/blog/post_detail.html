@@ -9,7 +9,14 @@
 
 {% endblock %}
 {% block content %}
+<br>
     <div class="post">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Post Details</li>
+            </ol>
+        </nav>
         {% if post.published_date %}
             <div class="date">
                 {{ post.published_date }}
@@ -22,7 +29,7 @@
             <li class="list-group-item itt">
 <!--                <div class="container content1 mt-4" style="border:0.1px solid black;border-radius:8px">-->
                 <h2 style="margin-top:10px">{{ post.title }}</h2>
-                <p><span style="font-family: 'Open Sans', sans-serif;"><b>Written by: {{post.author}}</b></span></p>
+                <p><span style="font-family: 'Open Sans', sans-serif;"><a href="/post/profile.html/{{ post.author }}"><b>Written by: {{post.author}}</b></a></span></p>
                 <p>{{ post.text|linebreaksbr }}</p>
 <!--                </div>-->
             </li>

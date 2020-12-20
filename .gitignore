@@ -3,7 +3,6 @@
 /.vscode
 __pycache__
 VirtualDjango
-db.sqlite3
 /static
 .DS_Store
 
