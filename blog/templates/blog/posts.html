@@ -1,0 +1,95 @@
+{% extends 'blog/base.html' %}
+{% block style %}
+#lim:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
+    transform: scale(1.005)
+}
+#lim{
+    transition: 0.2s;
+}
+#text1{
+    background-color: #cac;
+}
+
+#text2{
+    background-color: #cca;
+}
+
+{% endblock %}
+
+{% block jumbotron %}
+<!--    <div class="container-fluid mt-4">-->
+<!--        <img src="https://i.ibb.co/HDWB2wR/Copy-of-Blog.png" width="12%" style="border-radius: 50%;">-->
+<!--    </div>-->
+<!--    <div class="container-fluid" hidden>-->
+<!--        <div class="row">-->
+<!--          <div class="col-md-12">-->
+<!--            <div>-->
+<!--                <div id="text1">-->
+<!--                    <label>First Divider</label>-->
+<!--                </div>-->
+<!--                <div id="text2">-->
+<!--                    <label>second Divider</label>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <br>
+    <div class="container-fluid">
+        <ul class="list-group">
+            <li class="list-group-item" style="padding:0px">
+                <div style="background-image:url('https://i.pinimg.com/originals/35/44/02/354402069a75e9335ca81760a5a02546.jpg');width:100%;height:250px;overflow:hidden;;border-radius:5px">
+                    <div style="background:white;width:100%;height:135px;margin-top:120px;position:relative;">
+                        <img src="https://i.ibb.co/HDWB2wR/Copy-of-Blog.png" width="10%" style="position:absolute;bottom:63px;left:20px;border-radius: 50%;" />
+                        <br>
+                          <div class="row">
+                            <div class="col-sm-2" style="position:relative">
+                            </div>
+                            <div class="border border-white col-sm-2">
+                              <p class="mx-3" style="margin:0px;padding:0px"> Author: </p><h2 class="mx-5" style="margin-top:0px;margin-bottom:17px;padding-left:10px">{{ authr }}</h2>
+                            </div>
+                            <div class="col-sm-1">
+                            </div>
+                            <div class="border border-white col-sm-2">
+                              <p class="mx-3" style="margin:0px;padding:0px"> Posts: </p><h2 class="mx-5" style="margin-top:0px;margin-bottom:17px;padding-left:60px">{{ count }}</h2>
+                            </div>
+                            <div class="col-sm-1">
+                            </div>
+                            <div class="border border-white col-sm-2">
+                              <p class="mx-3" style="margin:0px;padding:0px">2020</p><h3 class="mx-5" style="margin-top:0px;margin-bottom:16px;;padding-left:13px">Top Writer</h3>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+<br>
+<div class="content container">
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="list-group">
+            {% for post in posts %}
+                <li class="list-group-item" id="lim">
+                    <div class="post">
+                        <div class="date">
+                            <p>{{ post.published_date }}</p>
+                        </div>
+                        <h3 style="margin-top:5px"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
+                        <p style="margin-bottom:1px">{{ post.text|linebreaksbr|slice:"0:550" }}{% if post.text|length > 550 %}...<a href="{% url 'post_detail' pk=post.pk %}"><i>Read more</i></a>{% endif %}</p>
+                        <p style="float:right"><a href="/post/profile.html/{{ post.author }}"><i>Author: {{ post.author }}</i></a></p>
+                    </div>
+                </li>
+                <hr>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

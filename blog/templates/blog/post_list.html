@@ -19,32 +19,36 @@
 <link rel="stylesheet" href="{% static 'css/blog.css' %}">        
     </head>
     <body>
-        <div>
-            <h1><a href="/">Pankaj's Blog</a></h1>
+<!--        <div>-->
+<!--            <h1><a href="/">Pankaj's Blog</a></h1>-->
+<!--        </div>-->
+{% block jumbotron %}
+    <div class="jumbotron" style="padding-top:13px;padding-bottom:15px;">
+                <h2>Blog App</h2>
         </div>
-
+ {% endblock %}
 <div class="content container">
     <div class="row">
         <div class="col-md-8">
-	{% block content %}
-            <ul class="list-group">
-            {% for post in posts %}
-                <li class="list-group-item">
-                    <div class="post">
-                        <div class="date">
-                            <p>{{ post.published_date }}</p>
-                        </div>
-                        <h3 style="margin-top:5px"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
-                        <p style="margin-bottom:1px">{{ post.text|linebreaksbr|slice:"0:550" }}{% if post.text|length > 550 %}...<a href="{% url 'post_detail' pk=post.pk %}"><i>Read more</i></a>{% endif %}</p>
-                        <p style="float:right"><i>Author: {{ post.author }}</i></p>
-                    </div>
-                </li>
-                <hr>
-            {% endfor %}
-            </ul>
-	   {% endblock %}
+	        {% block content %}
+                <ul class="list-group">
+                    {% for post in posts %}
+                        <li class="list-group-item">
+                            <div class="post">
+                                <div class="date">
+                                    <p>{{ post.published_date }}</p>
+                                </div>
+                                <h3 style="margin-top:5px"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
+                                <p style="margin-bottom:1px">{{ post.text|linebreaksbr|slice:"0:550" }}{% if post.text|length > 550 %}...<a href="{% url 'post_detail' pk=post.pk %}"><i>Read more</i></a>{% endif %}</p>
+                                <p style="float:right"><a href="/post/profile.html/{{ post.author }}"><i>Author: {{ post.author }}</i></a></p>
+                            </div>
+                        </li>
+                        <hr>
+                    {% endfor %}
+                </ul>
+            {% endblock %}
         </div>
     </div>
 </div>
-   </body>
+</body>
 </html>

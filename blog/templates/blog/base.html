@@ -10,7 +10,7 @@
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+<!--        <link rel="stylesheet" href="{% static 'css/blog.css' %}">-->
         <style>
             {% block style %}{% endblock %}
         </style>
@@ -34,21 +34,25 @@
                           Create Post +
                         </a>
                       </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/logout.html">Logout</a>
+                      </li>
                     {% else %}
                       <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/post/register.html">New user? Register</a>
+                        <a class="nav-link active" aria-current="page" href="/register.html">New user? Register</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/login.html">Login</a>
                       </li>
                     {% endif %}
                   </ul>
                 </div>
             </div>
         </nav>
-        <div class="jumbotron" style="padding-top:13px;padding-bottom:15px;">
-<!--            {% if user.is_authenticated %}-->
-<!--                    <div class="container"><a href="{% url 'post_new' %}" class="top-menu">Create New <span class="glyphicon glyphicon-plus"></span></a></div>-->
-<!--            {% endif %}-->
-                <div class="container"><a href="/"><h2>Blog App</h2></a></div>
-        </div>
+<!--        <div class="jumbotron" style="padding-top:13px;padding-bottom:15px;">-->
+<!--                <div class="container"><h2>Blog App</h2></div>-->
+<!--        </div>-->
+        {% block jumbotron %} {% endblock %}
         <div class="content container">
             <div class="row">
                 <div>{% block content %} {% endblock %}
@@ -60,5 +64,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+        {% block js %}{% endblock %}
     </body>
 </html>
