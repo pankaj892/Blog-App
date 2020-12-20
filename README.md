@@ -13,6 +13,7 @@ env\Scripts\activate
 ___👆 Here env is the name of the Virtual Environment___ 
 - Go to the blog folder and run the following command<br/>
 ``` bash
+cd blog
 python manage.py migrate
 ```
 - Test the app<br/>
