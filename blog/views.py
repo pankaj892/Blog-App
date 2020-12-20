@@ -7,6 +7,10 @@ from django.contrib.auth import authenticate, login, logout
 
 
 # Create your views here.
+# def favicon_boi(request):
+#     return (request,'blog/favicon.jpeg')
+
+
 def user_profile(request, au):
     post = Post.objects.filter(author__username=au)
     print(post)
@@ -38,17 +42,7 @@ def post_detail(request, pk):
         com = Comment(cmnt=cmnt, authr=request.user, post_id=post.id)
         com.save()
     view_comments = Comment.objects.filter(post_id=post.id)
-    # print(view_comments)
-    # view = []
-    # for item in view_comments:
-    #     view.append(item.cmnt)
-    # print(view)
     return render(request, 'blog/post_detail.html', {'post': post, 'view': view_comments})
-
-
-def post_new(request):
-    form = PostForm()
-    return render(request, 'blog/post_edit.html', {'form': form})
 
 
 def post_new(request):

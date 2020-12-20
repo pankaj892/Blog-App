@@ -10,5 +10,5 @@ urlpatterns = [
     path('login.html/', views.log_in, name='log_in'),
     path('logout.html/', views.log_out, name='log_out'),
     path('post/profile.html/<str:au>', views.user_profile, name='user_profile'),
-    path('posts.html/<str:au>', views.user_posts, name='user_posts'),
+    path('posts.html/<str:au>', views.user_posts, name='user_posts')
 ]
