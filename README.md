@@ -3,7 +3,7 @@
 ## Steps to run the project locally
 - Clone the project locally<br/>
 ``` bash 
-git clone url of the repository
+git clone url of repository
 ```
 - Make sure to use a virtual environment if you don't want to mess with your system<br/>
 ``` bash 
