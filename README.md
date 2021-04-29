@@ -1,4 +1,4 @@
-# A Blog created using Django Web Framework for Inout 7.0
+# A Blog created using Django Web Framework 
 
 ## Steps to run the project locally
 - Clone the project locally<br/>
