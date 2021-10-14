@@ -1,9 +1,11 @@
 # A Blog created using Django Web Framework 
 
 ## Steps to run the project locally
+- Fork the project to your github account
+
 - Clone the project locally<br/>
 ``` python 
-git clone url
+git clone url (url of the fork)/
 ```
 - Make sure to use a virtual environment if you don't want to mess with your system<br/>
 ``` python 
